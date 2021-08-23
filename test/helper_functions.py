@@ -26,3 +26,10 @@ def decode_base64_hash(base64_hash :str):
     decoded_bytes = base64.urlsafe_b64decode(base64_hash)
     decoded_str = str(decoded_bytes, "utf-8")
     return decoded_str
+
+
+job_id = api_post_password("test").text
+pword_hash = api_get_hash(job_id).text
+print(pword_hash)
+raw_sha512 = decode_base64_hash(pword_hash)
+print(raw_sha512)
