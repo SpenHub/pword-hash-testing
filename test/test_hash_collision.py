@@ -1,5 +1,4 @@
 import helper_functions as hf
-import threading
 
 def test_password_collision_basic(same_pass:str = "test"):
     base64_hash = hf.api_get_hash(

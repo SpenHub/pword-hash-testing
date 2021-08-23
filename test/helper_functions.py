@@ -1,7 +1,4 @@
-import requests
-import base64
-import random
-import string
+import requests, base64, random, string
 
 def build_base_url(host = "http://localhost", port=8000):
     return host + ":" + str(port) + ""
@@ -30,4 +27,3 @@ def decode_base64_hash(base64_hash :str):
 
 def random_string_generator(str_size):
     return ''.join(random.choice(string.ascii_letters) for x in range(str_size))
-    
