@@ -16,13 +16,13 @@ I wasn't quite sure how in-depth to make these tests so I tried to test all the 
 
 ## Collisions
 |Test Case| 🤖 Automated / ✍️ Manual|Pass?|
-|---------|-----|
+|---------|--------------------------|-----|
 |Send same password twice, verify different hash|🤖|:heavy_multiplication_x:|
 |Send 1000s of unique passwords, verify no same hash|✍️|:heavy_check_mark:|
 
 ## Concurrency
 |Test Case| 🤖 Automated / ✍️ Manual|Pass?|
-|---------|-----|
+|---------|--------------------------|-----|
 |250 simultaneous requests should all resolve to valid pass|🤖|:heavy_check_mark:|
 |Shutdown while password-hash is actively running|🤖|:heavy_multiplication_x:|
 
@@ -31,23 +31,17 @@ I wasn't quite sure how in-depth to make these tests so I tried to test all the 
 - Any attempts made to compare the base64 decoded hash, to a known sha512 hash of `<password>` were always different with `broken-hashserve_darwin`'s hash resulting in non-ASCII characters. 
 
 |Test Case| 🤖 Automated / ✍️ Manual|Pass?|
-|---------|-----|
+|---------|--------------------------|-----|
 |Verify SHA512|✍️|:heavy_multiplication_x:|
 |Verify SHA512 + Base64 Encode|🤖|:heavy_multiplication_x:|
 |Verify stat's Number of Requests is accurate|🤖|:heavy_check_mark:|
-
-## UI/UX
-|Test Case|Pass?|
-|---------|-----|
-|Hovering on Dog button triggers emphasis|:heavy_check_mark:|      
-|Clicking on dog button changes button style to show selection|:heavy_check_mark:|      
 
 ## Timing/ Latency
 - I noticed that the time to receive a job_id was consistently ~ 5 seconds, and the time to receive a hash, given a job_id was near instant. Regardless, given the prompt that's a failure. 
 - I used 5.5 seconds as that's 5 seconds + 10% (potentially possible given differences in machines running the program)
 
 |Test Case| 🤖 Automated / ✍️ Manual|Pass?|
-|---------|-----|
+|---------|--------------------------|-----|
 |Time to receive job_id for current hash < 5 seconds|✍️|:heavy_multiplication_x:|
 |Time to receive job_id for current hash < 5 seconds|🤖|:heavy_multiplication_x:|
 |End-to-end time to receive a hash < 5.5 seconds |✍️|:heavy_check_mark:|
