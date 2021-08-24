@@ -1,5 +1,5 @@
+from threading import Thread
 import helper_functions as hf
-
 
 def test_multiple_requests():
     # if the resulting arrays of hashes contain NUM_THREADS
@@ -26,3 +26,13 @@ def test_multiple_requests():
     
     assert len(job_ids) == NUM_THREADS
     assert len(base64_hashes) == NUM_THREADS
+
+def test_shutdown_hash_in_progress():
+    last_hash_request = hf.ThreadWithReturnValue(target=hf.api_post_random_password, args=())
+    shutdown = Thread(target=hf.api_post_shutdown, args=())
+    last_hash_request.start()
+    shutdown.start()
+    base64_last_hash = hf.api_get_hash(last_hash_request.join().text).text
+    shutdown.join()
+
+    assert base64_last_hash # in-flight password hash should be processed when shutdown signal is received
