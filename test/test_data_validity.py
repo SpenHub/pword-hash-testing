@@ -3,20 +3,6 @@ import hashlib as hl
 import base64
 from threading import Thread
 
-class ThreadWithReturnValue(Thread):
-    def __init__(self, group=None, target=None, name=None,
-                 args=(), kwargs={}, Verbose=None):
-        Thread.__init__(self, group, target, name, args, kwargs)
-        self._return = None
-    def run(self):
-        # print(type(self._target))
-        if self._target is not None:
-            self._return = self._target(*self._args,
-                                                **self._kwargs)
-    def join(self, *args):
-        Thread.join(self, *args)
-        return self._return
-
 def test_sha512():
     # Compute SHA512, base64 encode, and compare
     # with "hash/<job_id>" response
@@ -43,7 +29,7 @@ def test_stats_num_jobs():
     base64_hashes = []
 
     for i in range(NUM_THREADS):
-        t = ThreadWithReturnValue(target=hf.api_post_random_password, args=())
+        t = hf.ThreadWithReturnValue(target=hf.api_post_random_password, args=())
         t.daemon = True
         threads.append(t)
 
