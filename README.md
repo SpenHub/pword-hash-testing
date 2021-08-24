@@ -36,6 +36,12 @@ I wasn't quite sure how in-depth to make these tests so I tried to test all the 
 |Verify SHA512 + Base64 Encode|🤖|:heavy_multiplication_x:|
 |Verify stat's Number of Requests is accurate|🤖|:heavy_check_mark:|
 
+## UI/UX
+|Test Case|Pass?|
+|---------|-----|
+|Hovering on Dog button triggers emphasis|:heavy_check_mark:|      
+|Clicking on dog button changes button style to show selection|:heavy_check_mark:|      
+
 ## Timing/ Latency
 - I noticed that the time to receive a job_id was consistently ~ 5 seconds, and the time to receive a hash, given a job_id was near instant. Regardless, given the prompt that's a failure. 
 - I used 5.5 seconds as that's 5 seconds + 10% (potentially possible given differences in machines running the program)
