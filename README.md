@@ -1,4 +1,4 @@
-# QA Take Home Assignment
+# JumpCloud QA Assignment:
 ## Assumptions:
 - Endpoints supported:
 	- POST: `/hash`
