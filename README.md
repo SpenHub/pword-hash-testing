@@ -22,6 +22,7 @@ I wasn't quite sure how in-depth to make these tests so I tried to test all the 
 
 ## Concurrency
 - It appears that the active password-hashing job is killed when the shutdown-request is initiated, however this could be due to my lack of experience using threading in Python. 
+
 |Test Case| 🤖 Automated / ✍️ Manual|Pass?|
 |---------|--------------------------|-----|
 |250 simultaneous requests should all resolve to valid pass|🤖|:heavy_check_mark:|
