@@ -1,7 +1,6 @@
 import helper_functions as hf
 import hashlib as hl
 import base64
-from threading import Thread
 
 def test_sha512():
     # Compute SHA512, base64 encode, and compare
@@ -45,7 +44,3 @@ def test_stats_num_jobs():
     final_stats_num_jobs = int(hf.api_get_stats_requests())
 
     assert init_stats_num_jobs + NUM_THREADS == final_stats_num_jobs
-
-
-    
-test_stats_num_jobs()

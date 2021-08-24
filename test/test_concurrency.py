@@ -1,5 +1,5 @@
 import helper_functions as hf
-from threading import Thread
+
 
 def test_multiple_requests():
     # if the resulting arrays of hashes contain NUM_THREADS
