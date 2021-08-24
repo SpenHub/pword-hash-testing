@@ -15,6 +15,8 @@
 I wasn't quite sure how in-depth to make these tests so I tried to test all the "AC" from the prompt, and any additonal tests I thought required. My testing efforts sometimes are very brief with basic descriptions, to those with explicit steps and validation critera. Please excuse if the test-plan is either too explicit or too implicit.
 
 ## Collisions
+- In my eyes, if this is a password hasher, the same password should *never* result in the same hash, as this can make one's applciation succeptible to a rainbow-table like attack.
+- Passwords should have salt added to help guarantee that each password supplied will result in a unique hash once base64 decoded. 
 |Test Case| 🤖 Automated / ✍️ Manual|Pass?|
 |---------|--------------------------|-----|
 |Send same password twice, verify different hash|🤖|:heavy_multiplication_x:|
