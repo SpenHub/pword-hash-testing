@@ -11,8 +11,9 @@ def test_password_collision_basic(same_pass:str = "test"):
 
 # def test_password_collision_rand():
 #     NUM_REQUESTS = 10
+#     rand_str = hf.random_string_generator(100)
 #     base64_hashes = []
 #     for i in range(NUM_REQUESTS):
 #         base64_hashes.append(hf.api_get_hash(
-#                         hf.api_post_password(hf.random_string_generator(i)).text).text)
+#                         hf.api_post_password(rand_str).text).text)
 #     # WIP

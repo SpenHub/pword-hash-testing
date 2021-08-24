@@ -13,7 +13,7 @@ def test_job_id_return_time():
     end = perf_counter_ns()
     time = end - start
 
-    assert (time) < DESIRED_JOB_TIME
+    assert (time) < DESIRED_JOB_TIME # job_id not returned "immediately"
 
 def test_hash_return_time():
     start = perf_counter_ns()
@@ -23,4 +23,5 @@ def test_hash_return_time():
     end = perf_counter_ns()
     time = end - start
 
-    assert (time) < DESIRED_HASH_TIME
+    assert (time) < DESIRED_HASH_TIME # password_hash not returned in < 5.5 seconds
+
