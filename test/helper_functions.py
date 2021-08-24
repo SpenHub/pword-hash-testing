@@ -29,6 +29,9 @@ def api_get_stats():
 def api_get_stats_requests():
     return api_get_stats()["TotalRequests"]
 
+def api_get_stats_avg_time():
+    return api_get_stats()["AverageTime"]
+
 def api_post_shutdown():
     data = 'shutdown'
     return requests.post(f"{base_url}/hash", data=data)
